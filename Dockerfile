@@ -5,9 +5,9 @@ WORKDIR /app
 VOLUME /app/logs
 VOLUME /app/config
  # 将应用程序的 JAR 文件复制到容器中
-COPY ./target/vulnerability-library.jar app.jar
+COPY ./target/vuln-demo.jar app.jar
 # 暴露应用程序的端口
-EXPOSE 8081
+EXPOSE 8082
 # 设置环境变量
 ENV PROFILE_ENV="dev"
 # 运行应用程序
