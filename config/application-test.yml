@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: vulibrary
+    password: vulibrary123456
+    url: jdbc:mysql://10.206.0.3:3306/vulnerability_library?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+  data:
+    redis:
+      host: 10.206.0.3
+      port: 6379
+      password: gegRCbhCMv
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8       # 最大连接数
+          max-idle: 8         # 最大空闲连接
+          min-idle: 0         # 最小空闲连接
+          max-wait: -1ms      # 无限等待
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'vuln-library'
+      paths-to-match: '/**'
+      packages-to-scan: com.maita.yuedian.vulnerability.library.controller
+### knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    # 是否启用 Host
+    enable-host: true
+    # 启用 Host 地址
+    enable-host-text: "http://119.45.169.164"
+
+
+remote:
+  auto-test:
+    host: http://10.206.0.3:8080
+    app-id: 417c4f3f30d34043
+    secret-key: 5d940d7bb69d428eaf813a243591aba3

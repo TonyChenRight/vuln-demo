@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maita.yuedian.vulnerability.library.mapper.VuCveMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.maita.yuedian.vulnerability.library.domain.VuCve">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="remark" property="remark" />
+        <result column="level" property="level" />
+        <result column="score" property="score" />
+        <result column="repair_methods" property="repairMethods" />
+        <result column="affect_range" property="affectRange" />
+        <result column="state" property="state" />
+        <result column="publish_time" property="publishTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="creator_id" property="creatorId" />
+        <result column="updater_id" property="updaterId" />
+        <result column="creator_name" property="creatorName" />
+        <result column="updater_name" property="updaterName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, remark, level, score, repair_methods, affect_range, state, publish_time, modify_time, created_time, updated_time, creator_id, updater_id, creator_name, updater_name
+    </sql>
+
+</mapper>
