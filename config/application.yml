@@ -52,7 +52,7 @@ system:
   api-signature: '{"417c4f3f30d34043": "5d940d7bb69d428eaf813a243591aba3"}'
   upload-tmp-path: /tmp/upload-path
   download-tmp-path: /tmp/download-path
-  admin-gen-password: 123ABCdef*
+  gen-password: asdf1234*
   max-token-expire-seconds: 28800
   skip-permission-path: /common/**
   replace-uri-prefix: /vuln-demo

@@ -181,3 +181,21 @@ VALUES
     ('3', 'user', 'vu-man', '1733544962000'),
     ('4', 'user', 'vu:all', '1733544962000');
 
+
+CREATE TABLE `sys_operation_log` (
+ `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+ `module` tinyint(2) NOT NULL DEFAULT '0' COMMENT '模块',
+ `type` tinyint(2) NOT NULL DEFAULT '0' COMMENT '类型',
+ `target_id` varchar(64) NOT NULL DEFAULT '' COMMENT '目标ID',
+ `param` json DEFAULT NULL COMMENT '请求参数',
+ `uri` varchar(255) NOT NULL DEFAULT '' COMMENT 'URI',
+ `ip` varchar(255) NOT NULL DEFAULT '' COMMENT 'IP地址',
+ `success` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否成功',
+ `err_msg` longtext DEFAULT NULL COMMENT '错误信息',
+ `creator_id` bigint NOT NULL DEFAULT '0' COMMENT '创建人ID',
+ `creator_name` varchar(50) NOT NULL DEFAULT '' COMMENT '创建人名称',
+ `created_time` bigint NOT NULL DEFAULT '0' COMMENT '创建时间',
+ PRIMARY KEY(`id`),
+ KEY `idx_module_type` (`module`, `type`),
+ KEY `idx_target` (`target_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='操作日志';
