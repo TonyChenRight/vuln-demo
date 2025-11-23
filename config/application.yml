@@ -52,4 +52,8 @@ system:
   api-signature: '{"417c4f3f30d34043": "5d940d7bb69d428eaf813a243591aba3"}'
   upload-tmp-path: /tmp/upload-path
   download-tmp-path: /tmp/download-path
-  permanent-token: cf41a82604ae473a80a93966d197b3da
+  admin-gen-password: 123ABCdef*
+  max-token-expire-seconds: 28800
+  skip-permission-path: /common/**
+  replace-uri-prefix: /vuln-demo
+  secret-key: abcdefgabcdefg12

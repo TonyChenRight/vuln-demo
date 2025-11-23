@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maita.yuedian.vulnerability.library.mapper.SysResourceMapper">
+
+    <resultMap id="BaseResultMap" type="com.maita.yuedian.vulnerability.library.domain.SysResource">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="code" column="code" jdbcType="VARCHAR"/>
+            <result property="uri" column="uri" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="parentCode" column="parent_code" jdbcType="VARCHAR"/>
+            <result property="weight" column="weight" jdbcType="INTEGER"/>
+            <result property="extra" column="extra" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="createdTime" column="created_time" jdbcType="BIGINT"/>
+            <result property="updatedTime" column="updated_time" jdbcType="BIGINT"/>
+            <result property="creatorId" column="creator_id" jdbcType="BIGINT"/>
+            <result property="updaterId" column="updater_id" jdbcType="BIGINT"/>
+            <result property="creatorName" column="creator_name" jdbcType="VARCHAR"/>
+            <result property="updaterName" column="updater_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,code, uri,
+        name,parent_code,weight,
+        extra,status,created_time,
+        updated_time,creator_id,updater_id,
+        creator_name,updater_name
+    </sql>
+
+    <select id="getRoleResources" resultMap="BaseResultMap">
+        select
+            sr.id,sr.type,sr.code,sr.uri,
+            sr.name,sr.parent_code,sr.weight,
+            sr.extra,sr.status,sr.created_time,
+            sr.updated_time,sr.creator_id,sr.updater_id,
+            sr.creator_name,sr.updater_name
+        from sys_role_resource srr
+        left join sys_resource sr on srr.resource_code = sr.code
+        where sr.status = 1
+          and srr.role_code = #{roleCode}
+        order by sr.weight desc
+    </select>
+</mapper>

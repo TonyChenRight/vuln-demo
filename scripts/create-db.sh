@@ -1,5 +1,5 @@
-CREATE DATABASE vulnerability_library CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE vuln_demo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE USER 'vulibrary'@'%' IDENTIFIED BY  'vulibrary123456';
-GRANT ALL PRIVILEGES ON vulnerability_library.* TO 'vulibrary'@'%';
+CREATE USER 'vuln'@'%' IDENTIFIED BY  'vuln123456';
+GRANT ALL PRIVILEGES ON vuln_demo.* TO 'vuln'@'%';
 FLUSH PRIVILEGES;
