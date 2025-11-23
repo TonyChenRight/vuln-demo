@@ -55,5 +55,4 @@ system:
   gen-password: asdf1234*
   max-token-expire-seconds: 28800
   skip-permission-path: /common/**
-  replace-uri-prefix: /vuln-demo
   secret-key: abcdefgabcdefg12
