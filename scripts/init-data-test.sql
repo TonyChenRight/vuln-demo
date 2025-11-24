@@ -161,8 +161,8 @@ VALUES
     ('2', '2', 'user:all', '/admin/user/**', '用户管理完整操作权限', 'user-man', '1', '{}', '1', '1729946254000', '1729946254000', '1', '1', 'admin', 'admin'),
     ('3', '1', 'vu-man', '/vulnerability-management', '漏洞信息管理', NULL, '1', '{ \"icon\": \"kehuguanli\", \"router\": \"/vulnerability-management\", \"isShow\": 1, \"viewPath\": \"vulManagement/index.vue\", \"openMode\": 1 }', '1', '1733544850000', '1733544850000', '1', '1', 'admin', 'admin'),
     ('4', '2', 'vu:all', '/admin/vulnerability/**', '漏洞信息管理完整操作权限', 'vu-man', '1', '{}', '1', '1733544917000', '1733544917000', '1', '1', 'admin', 'admin'),
-    ('5', '1', 'log-man', '/operation-log', '操作日志模块', NULL, '1', '{ \"icon\": \"kehuguanli\", \"router\": \"/vulnerability-management\", \"isShow\": 1, \"viewPath\": \"vulManagement/index.vue\", \"openMode\": 1 }', '1', '1733544850000', '1733544850000', '1', '1', 'admin', 'admin'),
-    ('6', '2', 'log:all', '/admin/log/**', '操作日志管理完整操作权限', 'vu-man', '1', '{}', '1', '1733544917000', '1733544917000', '1', '1', 'admin', 'admin');
+    ('5', '1', 'log-man', '/operation-log', '操作日志模块', NULL, '1', '{ \"icon\": \"kehuguanli\", \"router\": \"/log-management\", \"isShow\": 1, \"viewPath\": \"log/index.vue\", \"openMode\": 1 }', '1', '1733544850000', '1733544850000', '1', '1', 'admin', 'admin'),
+    ('6', '2', 'log:all', '/admin/log/**', '操作日志管理完整操作权限', 'log-man', '1', '{}', '1', '1733544917000', '1733544917000', '1', '1', 'admin', 'admin');
 
 
 
@@ -184,13 +184,15 @@ VALUES
     ('3', 'user', 'vu-man', '1733544962000'),
     ('4', 'user', 'vu:all', '1733544962000'),
     ('5', 'admin', 'log-man', '1733544962000'),
-    ('6', 'admin', 'log:all', '1733544962000');
+    ('6', 'admin', 'log:all', '1733544962000'),
+    ('7', 'admin', 'vu-man', '1733544962000'),
+    ('8', 'admin', 'vu:all', '1733544962000');
 
 
 CREATE TABLE `sys_operation_log` (
  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
  `module` tinyint(2) NOT NULL DEFAULT '0' COMMENT '模块',
- `type` tinyint(2) NOT NULL DEFAULT '0' COMMENT '类型',
+ `type` varchar(255) NOT NULL DEFAULT '' COMMENT '类型',
  `target_id` varchar(64) NOT NULL DEFAULT '' COMMENT '目标ID',
  `param` json DEFAULT NULL COMMENT '请求参数',
  `uri` varchar(255) NOT NULL DEFAULT '' COMMENT 'URI',
