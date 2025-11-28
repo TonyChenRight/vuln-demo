@@ -40,9 +40,3 @@ knife4j:
     enable-host: true
     # 启用 Host 地址
     enable-host-text: "http://127.0.0.1:${server.port}"
-
-remote:
-  auto-test:
-    host: http://127.0.0.1:8080
-    app-id: 417c4f3f30d34043
-    secret-key: 5d940d7bb69d428eaf813a243591aba3
